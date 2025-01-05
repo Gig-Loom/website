@@ -12,7 +12,7 @@ import {
   Spinner,
 } from "@nextui-org/react";
 import toast from 'react-hot-toast';
-import { BASE_URL } from '../BASE_URL';
+import { BASE_URL, IMAGE_PREFIX } from '../BASE_URL';
 
 export default function VerificationPage() {
   return (
@@ -133,7 +133,7 @@ function Verification() {
         <div className="w-full lg:flex lg:max-w-5xl lg:shadow-2xl lg:rounded-xl lg:min-h-[600px] lg:bg-white">
           <div className="hidden lg:block lg:w-1/2 relative rounded-l-xl overflow-hidden">
             <Image
-              src="/grab-TaHwKzcN5QU-unsplash.jpg"
+              src={`${IMAGE_PREFIX}/grab-TaHwKzcN5QU-unsplash.jpg`}
               alt="Verification background"
               fill
               className="object-cover"

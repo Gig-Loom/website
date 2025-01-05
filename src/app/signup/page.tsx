@@ -15,7 +15,7 @@ import {
   DropdownItem,
 } from "@nextui-org/react";
 import toast from "react-hot-toast";
-import { BASE_URL } from "../BASE_URL";
+import { BASE_URL, IMAGE_PREFIX } from "../BASE_URL";
 import { countryCodes } from "../constants";
 
 export default function SignUpPage() {
@@ -85,8 +85,8 @@ export default function SignUpPage() {
         <div className="w-full lg:flex lg:max-w-5xl lg:shadow-2xl lg:rounded-xl lg:min-h-[600px] lg:bg-white">
           <div className="hidden lg:block lg:w-1/2 relative rounded-l-xl overflow-hidden">
             <Image
-              src="/grab-TaHwKzcN5QU-unsplash.jpg"
-              alt="Signup background"
+              src={`${IMAGE_PREFIX}/grab-TaHwKzcN5QU-unsplash.jpg`}
+              alt="singup image"
               fill
               className="object-cover"
               priority

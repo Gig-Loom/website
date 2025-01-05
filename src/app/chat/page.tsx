@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Card, Spinner, User, Navbar, Button, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react";
 import toast from 'react-hot-toast';
-import { BASE_URL } from '../BASE_URL';
+import { BASE_URL, IMAGE_PREFIX } from '../BASE_URL';
 import Image from 'next/image';
 
 interface Conversation {
@@ -98,7 +98,7 @@ export default function ChatListPage() {
               <div className="max-w-7xl mx-auto w-full px-4 flex items-center justify-between">
                 <NavbarBrand>
                   <Image
-                    src="/icon.png"
+                    src={`${IMAGE_PREFIX}/icon.png`}
                     alt="icon"
                     width={75}
                     height={50}

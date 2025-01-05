@@ -13,6 +13,7 @@ import {
   CardBody,
 } from "@nextui-org/react";
 import { Search, ArrowRight, Mail } from "lucide-react";
+import { IMAGE_PREFIX } from "./BASE_URL";
 
 export default function LandingPage() {
   return (
@@ -24,7 +25,7 @@ export default function LandingPage() {
         <NavbarBrand className="hidden md:flex">
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/icon.png"
+              src={`${IMAGE_PREFIX}/icon.png`}
               alt="Gigloom Logo"
               width={40}
               height={40}
@@ -76,7 +77,7 @@ export default function LandingPage() {
 
         <div className="relative w-full max-w-2xl mb-8">
           <Image
-            src="/gigs.gif"
+            src={`${IMAGE_PREFIX}/gigs.gif`}
             alt="Search Icon"
             width={120}
             height={120}

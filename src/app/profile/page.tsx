@@ -22,7 +22,7 @@ import {
 } from "@nextui-org/react";
 import { Phone, LogOut } from "lucide-react";
 import toast from "react-hot-toast";
-import { BASE_URL } from "../BASE_URL";
+import { BASE_URL, IMAGE_PREFIX } from "../BASE_URL";
 
 interface Profile {
   token: string | null;
@@ -137,7 +137,7 @@ export default function ProfilePage() {
         <div className="max-w-7xl mx-auto w-full px-4 flex items-center justify-between">
           <NavbarBrand>
             <Image
-              src="/icon.png"
+              src={`${IMAGE_PREFIX}/icon.png`}
               alt="icon"
               width={75}
               height={50}
