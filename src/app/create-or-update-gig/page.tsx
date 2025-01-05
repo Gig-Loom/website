@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import {
@@ -12,6 +12,7 @@ import {
   Textarea,
   Select,
   SelectItem,
+  Spinner,
 } from "@nextui-org/react";
 import toast from "react-hot-toast";
 import { BASE_URL } from "../BASE_URL";
@@ -24,6 +25,20 @@ interface ImageAsset {
 }
 
 export default function CreateOrUpdateGigPage() {
+  return (
+    <Suspense 
+      fallback={
+        <div className="flex justify-center items-center min-h-screen">
+          <Spinner color="success" size="lg" />
+        </div>
+      }
+    >
+      <CreateOrUpdateGig />
+    </Suspense>
+  );
+}
+
+function CreateOrUpdateGig() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const gigId = searchParams.get("id");

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import {
@@ -9,11 +9,26 @@ import {
   Card,
   CardBody,
   CardHeader,
+  Spinner,
 } from "@nextui-org/react";
 import toast from 'react-hot-toast';
 import { BASE_URL } from '../BASE_URL';
 
 export default function VerificationPage() {
+  return (
+    <Suspense 
+      fallback={
+        <div className="flex justify-center items-center min-h-screen">
+          <Spinner color="success" size="lg" />
+        </div>
+      }
+    >
+      <Verification />
+    </Suspense>
+  );
+}
+
+function Verification() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const phoneNumber = searchParams.get('phoneNumber');

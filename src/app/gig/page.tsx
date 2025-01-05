@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import {
@@ -36,6 +36,20 @@ type Gig = {
 };
 
 export default function GigDetailsPage() {
+  return (
+    <Suspense 
+      fallback={
+        <div className="flex justify-center items-center min-h-screen">
+          <Spinner color="success" size="lg" />
+        </div>
+      }
+    >
+      <GigDetails />
+    </Suspense>
+  );
+}
+
+function GigDetails() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const gigId = searchParams.get("id");

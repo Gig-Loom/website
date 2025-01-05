@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import {
@@ -10,12 +10,27 @@ import {
   Button,
   Textarea,
   ButtonGroup,
+  Spinner,
 } from "@nextui-org/react";
 import { Upload, Star } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { BASE_URL } from '../BASE_URL';
 
 export default function CompleteServicePage() {
+  return (
+    <Suspense 
+      fallback={
+        <div className="flex justify-center items-center min-h-screen">
+          <Spinner color="success" size="lg" />
+        </div>
+      }
+    >
+      <CompleteService />
+    </Suspense>
+  );
+}
+
+function CompleteService() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const chatRoomId = searchParams.get('chatRoomId');
