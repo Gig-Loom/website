@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { Card, Button, Input, Spinner, Avatar } from "@nextui-org/react";
 import { Send } from "lucide-react";
 import toast from "react-hot-toast";
@@ -31,8 +31,8 @@ interface UserProfile {
 
 export default function ChatDetailPage() {
   const router = useRouter();
-  const { id } = useParams();
-  const chatRoomId = id;
+  const searchParams = useSearchParams();
+  const chatRoomId = searchParams.get('id');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const [messages, setMessages] = useState<Message[]>([]);

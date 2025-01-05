@@ -151,7 +151,7 @@ function GigDetails() {
 
       const data = await response.json();
       if (data.success) {
-        router.push(`/chat/${data.data.chat_room_id}`);
+        router.push(`/chat?id=${data.data.chat_room_id}`);
       } else {
         toast.error(data.message || "Failed to create chat");
       }
