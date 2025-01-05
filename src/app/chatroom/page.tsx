@@ -5,7 +5,7 @@ import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { Card, Button, Input, Spinner, Avatar } from "@nextui-org/react";
 import { Send } from "lucide-react";
 import toast from "react-hot-toast";
-import { BASE_URL } from "../../BASE_URL";
+import { BASE_URL } from "../BASE_URL";
 
 interface Message {
   id: string;

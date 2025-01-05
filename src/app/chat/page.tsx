@@ -136,7 +136,7 @@ export default function ChatListPage() {
               <Card
                 key={conversation.chat_room_id}
                 isPressable
-                onPress={() => router.push(`/chat?id=${conversation.chat_room_id}`)}
+                onPress={() => router.push(`/chatroom?id=${conversation.chat_room_id}`)}
                 className="w-full"
               >
                 <div className="p-4 flex items-center gap-4">
