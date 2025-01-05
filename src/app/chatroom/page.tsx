@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { Card, Button, Input, Spinner, Avatar } from "@nextui-org/react";
 import { Send } from "lucide-react";
@@ -30,6 +30,20 @@ interface UserProfile {
 }
 
 export default function ChatDetailPage() {
+  return (
+    <Suspense 
+      fallback={
+        <div className="flex justify-center items-center min-h-screen">
+          <Spinner color="success" size="lg" />
+        </div>
+      }
+    >
+      <ChatDetail />
+    </Suspense>
+  );
+}
+
+function ChatDetail() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const chatRoomId = searchParams.get('id');
