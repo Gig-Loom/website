@@ -1,100 +1,263 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  Input,
+  Button,
+  Card,
+  CardBody,
+} from "@nextui-org/react";
+import { Search, ArrowRight, Mail } from "lucide-react";
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      <Navbar
+        maxWidth="xl"
+        className="bg-white/70 backdrop-blur-md border-b border-gray-200"
+      >
+        <NavbarBrand className="hidden md:flex">
+          <Link href="/" className="flex items-center gap-2">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/icon.png"
+              alt="Gigloom Logo"
+              width={40}
+              height={40}
+              className="object-contain"
+              priority
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <span className="font-extrabold text-xl text-green-800">
+              Gigloom
+            </span>
+          </Link>
+        </NavbarBrand>
+        <NavbarContent justify="end">
+          <NavbarItem>
+            <Link
+              href="#features"
+              className="text-gray-600 hover:text-green-800 font-medium"
+            >
+              Features
+            </Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Link
+              href="#about"
+              className="text-gray-600 hover:text-green-800 font-medium"
+            >
+              About
+            </Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Link
+              href="#contact"
+              className="text-gray-600 hover:text-green-800 font-medium"
+            >
+              Contact
+            </Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Button as={Link} href="/login" color="success" variant="flat">
+              Login
+            </Button>
+          </NavbarItem>
+        </NavbarContent>
+      </Navbar>
+
+      <main className="flex flex-col items-center justify-center min-h-screen px-4 pb-16 pt-24">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-6 max-w-3xl">
+          Your Gateway to Professional Gig Opportunities
+        </h1>
+
+        <div className="relative w-full max-w-2xl mb-8">
+          <Image
+            src="/gigs.gif"
+            alt="Search Icon"
+            width={120}
+            height={120}
+            className="absolute -top-16 -left-16 z-10"
+            priority
+          />
+          <Input
+            classNames={{
+              base: "h-12",
+              mainWrapper: "h-12",
+              input: "text-lg",
+            }}
+            placeholder="Find your next gig opportunity..."
+            size="lg"
+            startContent={<Search className="text-gray-400" />}
+            variant="bordered"
+            isDisabled
+          />
+        </div>
+
+        <p className="text-xl text-gray-700 max-w-2xl text-center mb-8">
+          Connect with professional opportunities and talented individuals.
+          Create or find the perfect gig that matches your skills and
+          requirements.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Button
+            as={Link}
+            href="/signup"
+            color="success"
+            className="px-8 py-6 text-lg font-semibold"
+            endContent={<ArrowRight />}
           >
-            Read our docs
-          </a>
+            Get Started
+          </Button>
+          <Button
+            as={Link}
+            href="/login"
+            variant="bordered"
+            className="px-8 py-6 text-lg font-semibold text-black"
+          >
+            Browse Gigs
+          </Button>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <section id="features" className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-green-800 text-center mb-16">
+            Why Choose Gigloom
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="bg-gray-50">
+              <CardBody className="p-6 text-center">
+                <h3 className="text-xl font-semibold mb-4 text-black">
+                  Easy Connection
+                </h3>
+                <p className="text-gray-600">
+                  Connect with professionals or clients seamlessly through our
+                  intuitive platform.
+                </p>
+              </CardBody>
+            </Card>
+            <Card className="bg-gray-50">
+              <CardBody className="p-6 text-center ">
+                <h3 className="text-xl font-semibold mb-4 text-black">
+                  Secure Transactions
+                </h3>
+                <p className="text-gray-600">
+                  Safe and secure payment processing for all your gig
+                  transactions.
+                </p>
+              </CardBody>
+            </Card>
+            <Card className="bg-gray-50">
+              <CardBody className="p-6 text-center">
+                <h3 className="text-xl font-semibold mb-4 text-black">
+                  Quality Assurance
+                </h3>
+                <p className="text-gray-600">
+                  Verified profiles and rating system to ensure quality service
+                  delivery.
+                </p>
+              </CardBody>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="py-24 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-green-800 text-center mb-8">
+            About Gigloom
+          </h2>
+          <p className="text-lg text-gray-600 text-center">
+            Gigloom is a professional platform that bridges the gap between
+            service providers and clients. We&aposre committed to making the gig
+            economy more accessible, efficient, and rewarding for everyone
+            involved. Whether you&aposre offering services or seeking professional
+            assistance, Gigloom provides the tools and platform you need to
+            succeed.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" className="py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-green-800 text-center mb-12">
+            Contact Us
+          </h2>
+          <Card className="max-w-2xl mx-auto">
+            <CardBody className="flex flex-col items-center gap-6 p-8">
+              <Mail className="w-10 h-10 text-green-600" />
+              <p className="text-lg text-gray-600 text-center">
+                Have questions or need assistance? Our team is here to help!
+                Reach out to us for any inquiries about our platform.
+              </p>
+              <Link
+                href="mailto:gigloombusiness@gmail.com"
+                className="flex items-center gap-2 text-lg text-green-800 hover:bg-green-50 px-4 py-2 rounded-lg transition-colors"
+              >
+                <Mail className="w-5 h-5" />
+                gigloombusiness@gmail.com
+              </Link>
+            </CardBody>
+          </Card>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-8">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div>
+              <h3 className="font-semibold mb-4">Gigloom</h3>
+              <p className="text-gray-400 text-sm">
+                Your trusted platform for professional gig services.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4">Quick Links</h3>
+              <div className="flex flex-col gap-2">
+                <Link
+                  href="/terms"
+                  className="text-gray-400 hover:text-white text-sm"
+                >
+                  Terms of Service
+                </Link>
+                <Link
+                  href="/privacy"
+                  className="text-gray-400 hover:text-white text-sm"
+                >
+                  Privacy Policy
+                </Link>
+              </div>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4">Connect</h3>
+              <div className="flex flex-col gap-2">
+                <Link
+                  href="#contact"
+                  className="text-gray-400 hover:text-white text-sm"
+                >
+                  Contact Us
+                </Link>
+                <Link
+                  href="#about"
+                  className="text-gray-400 hover:text-white text-sm"
+                >
+                  About Us
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 pt-8 text-center">
+            <p className="text-sm text-gray-400">
+              © 2025 Gigloom. All rights reserved.
+            </p>
+          </div>
+        </div>
       </footer>
     </div>
   );
