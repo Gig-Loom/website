@@ -7,4 +7,6 @@ const nextConfig: NextConfig = {
   },
 };
 
+assetPrefix: 'https://gig-loom.github.io/website/';
+
 export default nextConfig;
