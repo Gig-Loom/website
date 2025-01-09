@@ -111,7 +111,7 @@ function ChatDetail() {
 
       const { token } = JSON.parse(userInfo);
       const domain = BASE_URL?.replace(/(^\w+:|^)\/\//, "").replace(/\/$/, "");
-      const wsUrl = `ws://${domain}/ws/chat/${chatRoomId}/?token=${token}`;
+      const wsUrl = `wss://${domain}/ws/chat/${chatRoomId}/?token=${token}`;
 
       ws = new WebSocket(wsUrl);
 
